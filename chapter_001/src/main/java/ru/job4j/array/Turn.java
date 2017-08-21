@@ -3,7 +3,7 @@ package ru.job4j.array;
  * Class Board строит шахматную доску в псевдографике.
  * @author Andrey Sagirov (mailto:andrey.sagirov23@gmail.com)
  * @version $Id$
- * @since 19.08.2017
+ * @since 21.08.2017
  */
 public class Turn {
 	/**

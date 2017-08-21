@@ -23,7 +23,6 @@ public class TurnTest {
 		int[] result = turn.back(array);
 		int[] expected = {4, 1, 6, 2};
 		assertThat(result, is(expected));
-        //напишите здесь тест, проверяющий переворот массива с чётным числом элементов, например {2, 6, 1, 4}.
     }
 	/**
 	* @Test для проверки 2.
@@ -38,6 +37,5 @@ public class TurnTest {
 		int[] result = turn.back(array);
 		int[] expected = {5, 4, 3, 2, 1};
 		assertThat(result, is(expected));
-        //напишите здесь тест, проверяющий переворот массива с нечётным числом элементов, например {1, 2, 3, 4, 5}.
     }
 }
