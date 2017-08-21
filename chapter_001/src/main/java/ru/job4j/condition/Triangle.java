@@ -100,7 +100,7 @@ public double area() {
     double bc = this.distance(this.b, this.c);
     double p = this.period(ab, ac, bc);
     if (this.exist(ab, ac, bc)) {
-		rsl = Math.sqrt(this.petiod * (this.period - ab) * (this.period - ac) * (this.period + bc));
+		rsl = Math.sqrt(this.period * (this.period - ab) * (this.period - ac) * (this.period + bc));
     } else {
 		rsl = -1;
 	}
