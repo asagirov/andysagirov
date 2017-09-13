@@ -19,23 +19,21 @@ public class FirstExam {
 		return first;
 		}
 		int[] third = new int[first.length + second.length];
-		for (int i = 0; i < third.length / 2; i++) {
-			if (first[i] <= second[i]) {
-				third[i * 2] = first[i];
-				third[i * 2 + 1] = second[i];
-			} else {
-				third[i * 2] = second[i];
-				third[i * 2 + 1] = first[i];
-			}
-		}
+		int firstIndex = 0;
+		int secondIndex = 0;
 		for (int i = 0; i < third.length - 1; i++) {
-			/**
-			* @param return.
-			*/
-			int result = third[i];
-			if (third[i] >= third[i + 1]) {
-				third[i] = third [i + 1];
-				third[i + 1] = result;
+			if (first[firstIndex] < second[secondIndex] || secondIndex == second.length) {
+				third[i] = first[firstIndex];
+				firstIndex++;
+			} else if (first[firstIndex] > second[secondIndex] || firstIndex == first.length) {
+				third[i] = second[secondIndex];
+				secondIndex++;
+			} else {
+				third[i] = first[firstIndex];
+				third[i + 1] = second[secondIndex];
+				i = i + 1;
+				firstIndex++;
+				secondIndex++;
 			}
 		}
 	return third;

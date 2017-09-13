@@ -32,12 +32,12 @@ public class FirstExamTest {
 	/**
 	* @Test для проверки массива из 2 и 4 элементов.
 	*/
-    public void whenFirstAndSecondHaveTwoAndFourElements() {
+    public void whenFirstAndSecondHaveOneAndTwoElements() {
 		FirstExam proba = new FirstExam();
-		int[] first = {1, 5};
-		int[] second = {2, 3, 4};
+		int[] first = {1, 3};
+		int[] second = {2};
 		int[] result = proba.united(first, second);
-		int[] expected = {1, 2, 3, 4, 5};
+		int[] expected = {1, 2, 3};
 		assertThat(result, is(expected));
 	}
 	/**
