@@ -21,14 +21,20 @@ public class FirstExam {
 		int[] third = new int[first.length + second.length];
 		int firstIndex = 0;
 		int secondIndex = 0;
-		for (int i = 0; i < third.length - 1; i++) {
-			if (first[firstIndex] < second[secondIndex] || secondIndex == second.length) {
-				third[i] = first[firstIndex];
-				firstIndex++;
-			} else if (first[firstIndex] > second[secondIndex] || firstIndex == first.length) {
+		for (int i = 0; i < third.length; i++) {
+			if (firstIndex >= first.length) {
 				third[i] = second[secondIndex];
 				secondIndex++;
-			} else {
+			} else if (secondIndex >= second.length) {
+				third[i] = first[firstIndex];
+				firstIndex++;
+			} else if (first[firstIndex] < second[secondIndex]) {
+				third[i] = first[firstIndex];
+				firstIndex++;
+				} else if (first[firstIndex] > second[secondIndex]) {
+					third[i] = second[secondIndex];
+					secondIndex++;
+					} else {
 				third[i] = first[firstIndex];
 				third[i + 1] = second[secondIndex];
 				i = i + 1;
