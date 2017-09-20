@@ -19,13 +19,13 @@ public class Doctor extends Proffesion {
 	* @return текст.
 	*/
 	public String heal(Patients patients) {
-		return this.getEducation + " " + this.getName + " лечит пациента " + this.getName + " у которого жалоба на" + this.getComplaints;
+		return this.getEducation() + " " + this.getName() + " лечит пациента " + patients.getName() + " у которого жалоба на" + patients.getComplaints();
 	}
 	/**
 	* @param patients анализы пациента.
 	* @return текст.
 	*/
 	public String tests(Patients patients) {
-		return this.getName + " берёт анализы у пациента " + this.getName;
+		return this.getName() + " берёт анализы у пациента " + patients.getName();
 	}
 }

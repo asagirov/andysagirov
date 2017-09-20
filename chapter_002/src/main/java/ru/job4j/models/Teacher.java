@@ -19,20 +19,20 @@ public class Teacher extends Proffesion {
 	* @return текст.
 	*/
 	public String teach(Students students) {
-		return this.getEducation + " " + this.getName + " учит студентов из группы " + this.getGroupName;
+		return this.getEducation() + " " + this.getName() + " учит студентов из группы " + students.getGroupName();
 	}
 	/**
 	* @param students экзамен студентов.
 	* @return текст.
 	*/
 	public String exam(Students students) {
-		return this.getName + " принимает экзамены у группы " + this.getGroupName;
+		return this.getName() + " принимает экзамены у группы " + students.getGroupName();
 	}
 	/**
 	* @param students факультатив студентов.
 	* @return текст.
 	*/
 	public String elective(Students students) {
-		return this.getName + " проводит факультатив для группы " + this.getGroupName;
+		return this.getName() + " проводит факультатив для группы " + students.getGroupName();
 	}
 }
