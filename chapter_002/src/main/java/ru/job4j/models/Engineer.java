@@ -7,6 +7,14 @@ package ru.job4j.models;
  */
 public class Engineer extends Proffesion {
 	/**
+	* @param name имя.
+	* @param education образование.
+	* @param sex пол.
+	*/
+	public Engineer(String name, String education, String sex) {
+		super(name, education, sex);
+	}
+	/**
 	* разработка проэкта.
 	*/
 	public void development() {

@@ -6,25 +6,33 @@ package ru.job4j.models;
  * @since 19.09.2017
  */
 public class Teacher extends Proffesion {
-		/**
+	/**
+	* @param name имя.
+	* @param education образование.
+	* @param sex пол.
+	*/
+	public Teacher(String name, String education, String sex) {
+		super(name, education, sex);
+	}
+	/**
 	* @param students обучение студентов.
 	* @return текст.
 	*/
 	public String teach(Students students) {
-		return profession.getEducation + " " + profession.getName + " учит студентов из группы " + students.getGroupName;
+		return this.getEducation + " " + this.getName + " учит студентов из группы " + this.getGroupName;
 	}
 	/**
 	* @param students экзамен студентов.
 	* @return текст.
 	*/
 	public String exam(Students students) {
-		return profession.getName + " принимает экзамены у группы " + students.getGroupName;
+		return this.getName + " принимает экзамены у группы " + this.getGroupName;
 	}
 	/**
 	* @param students факультатив студентов.
 	* @return текст.
 	*/
 	public String elective(Students students) {
-		return profession.getName + " проводит факультатив для группы " + students.getGroupName;
+		return this.getName + " проводит факультатив для группы " + this.getGroupName;
 	}
 }

@@ -7,17 +7,25 @@ package ru.job4j.models;
  */
 public class Doctor extends Proffesion {
 	/**
+	* @param name имя.
+	* @param education образование.
+	* @param sex пол.
+	*/
+	public Doctor(String name, String education, String sex) {
+		super(name, education, sex);
+	}
+	/**
 	* @param patients лечение пациента.
 	* @return текст.
 	*/
 	public String heal(Patients patients) {
-		return profession.getEducation + " " + profession.getName + " лечит пациента " + patients.getName + " у которого жалоба на" + patients.getComplaints;
+		return this.getEducation + " " + this.getName + " лечит пациента " + this.getName + " у которого жалоба на" + this.getComplaints;
 	}
 	/**
 	* @param patients анализы пациента.
 	* @return текст.
 	*/
 	public String tests(Patients patients) {
-		return profession.getName + " берёт анализы у пациента " + patients.getName;
+		return this.getName + " берёт анализы у пациента " + this.getName;
 	}
 }
