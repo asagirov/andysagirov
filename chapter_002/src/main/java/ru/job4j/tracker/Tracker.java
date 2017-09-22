@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 import java.util.Arrays;
-import java.util.*;
+import java.util.Random;
 /**
  * Class Tracker работа с заявками.
  * @author Andrey Sagirov (mailto:andrey.sagirov23@gmail.com)
@@ -46,6 +46,7 @@ public class Tracker {
 	}
 	/**
 	* Получение списка всех заполненных заявок.
+	* @param item список.
 	* @return список заявок.
 	*/
 	public Item[] findAll(Item item) {
@@ -60,6 +61,7 @@ public class Tracker {
 	}
 	/**
 	* Поиск заявок по имени.
+	* @param name имя.
 	* @return список заявок.
 	*/
 	public Item[] findByName(String name) {
@@ -80,6 +82,7 @@ public class Tracker {
 	}
 	/**
 	* Получение списка всех уникальному id.
+	* @param id .
 	* @return список заявок.
 	*/
 	public Item findById(String id) {
