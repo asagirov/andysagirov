@@ -1,5 +1,4 @@
 package ru.job4j.tracker;
-import java.util.Arrays;
 import java.util.Random;
 /**
  * Class Tracker работа с заявками.
@@ -26,7 +25,7 @@ public class Tracker {
 	* @return созданная заявка.
 	*/
 	public Item add(Item item) {
-		item.setId(String.valueOf(System.currentTimeMillis() + RN.nextInt()));
+		item.setId(this.generateId());
 		this.items[position++] = item;
 		return item;
 	}
@@ -35,14 +34,14 @@ public class Tracker {
 	* @param item - заявка.
 	*/
 	public void update(Item item) {
-		item.getId = item;
+		this.items[findById(item)] = item;
 	}
 	/**
 	* Удаление заявки.
 	* @param item - заявка.
 	*/
 	public void delete(Item item) {
-		item.getId = null;
+		this.items[findById(item)] = null;
 	}
 	/**
 	* Получение списка всех заполненных заявок.
@@ -50,14 +49,20 @@ public class Tracker {
 	* @return список заявок.
 	*/
 	public Item[] findAll(Item item) {
-		int n = item.length;
-		for (Item item : items) {
+		int n = this.position;
+		for (int index = 0; index != this.position; index++) {
 			if (item == null) {
-				item = item[n - 1];
 				n--;
 			}
 		}
-		return Arrays.copyOf(item, n);
+		Item[] findAllItem = new Item[n];
+		int i = 0;
+		for (int index = 0; index != this.position; index++) {
+			if (item != null) {
+				findAllItem[i++] = this.items[index];
+			}
+		}
+		return findAllItem;
 	}
 	/**
 	* Поиск заявок по имени.
@@ -94,5 +99,12 @@ public class Tracker {
 				}
 			}
 		return result;
+		}
+		/**
+	* Генерируем уникальный id.
+	* @return id.
+	*/
+		String generateId() {
+			return String.valueOf(System.currentTimeMillis() + RN.nextInt());
 		}
 }
