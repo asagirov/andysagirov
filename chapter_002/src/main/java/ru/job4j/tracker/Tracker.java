@@ -54,20 +54,19 @@ public class Tracker {
 	}
 	/**
 	* Получение списка всех заполненных заявок.
-	* @param item список.
 	* @return список заявок.
 	*/
-	public Item[] findAll(Item item) {
+	public Item[] findAll() {
 		int n = this.position;
 		for (int index = 0; index != this.position; index++) {
-			if (item == null) {
+			if (this.items[index] == null) {
 				n--;
 			}
 		}
 		Item[] findAllItem = new Item[n];
 		int i = 0;
 		for (int index = 0; index != this.position; index++) {
-			if (item != null) {
+			if (this.items[index] != null) {
 				findAllItem[i++] = this.items[index];
 			}
 		}
