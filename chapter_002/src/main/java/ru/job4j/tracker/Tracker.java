@@ -1,11 +1,11 @@
 package ru.job4j.tracker;
 import java.util.Random;
 /**
- * Class Tracker работа с заявками.
- * @author Andrey Sagirov (mailto:andrey.sagirov23@gmail.com)
- * @version $Id$
- * @since 21.09.2017
- */
+* Class Tracker работа с заявками.
+* @author Andrey Sagirov (mailto:andrey.sagirov23@gmail.com)
+* @version $Id$
+* @since 21.09.2017
+*/
 public class Tracker {
 	/**
 	* items хранилище заявок.
@@ -34,14 +34,23 @@ public class Tracker {
 	* @param item - заявка.
 	*/
 	public void update(Item item) {
-		this.items[findById(item)] = item;
+		for (Item i : this.items) {
+			if (item.getId().equals(i.getId())) {
+			i = item;
+			break;
+			}
+		}
 	}
 	/**
 	* Удаление заявки.
 	* @param item - заявка.
 	*/
 	public void delete(Item item) {
-		this.items[findById(item)] = null;
+		for (Item i : this.items) {
+			if (item.getId().equals(i.getId())) {
+			i = null;
+			}
+		}
 	}
 	/**
 	* Получение списка всех заполненных заявок.
