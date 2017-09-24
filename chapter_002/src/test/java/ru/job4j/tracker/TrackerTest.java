@@ -19,9 +19,9 @@ public class TrackerTest {
 	*/
 	public void whenAddNewItemThenTrackerHasSameItem() {
 		Tracker tracker = new Tracker();
-		Item item = new Item("test1","testDescription",123L);
+		Item item = new Item("test1", "testDescription", 123, "testComments1");
 		tracker.add(item);
-		assertThat(tracker.getAll()[0], is(item));
+		assertThat(tracker.findAll(item), is(item));
 	}
 	/**
 	* @Test для проверки 2.
@@ -32,12 +32,12 @@ public class TrackerTest {
 	*/
 	public void whenUpdateDescReturnNewDesc() {
 		Tracker tracker = new Tracker();
-		Item previous = new Item("test1","testDesc1",123L);
+		Item previous = new Item("test1", "testDesc1", 123, "testComments1");
 		tracker.add(previous);
-		item next = new Item("test2","testDesc2",1234L);
+		Item next = new Item("test2", "testDesc2", 1234, "testComments2");
 		next.setId(previous.getId());
 		tracker.update(next);
-		assertThat(tracker.findById(previous.getId()).getName(),is("testDesc2"));
+		assertThat(tracker.findById(previous.getId()).getName(), is("testDesc2"));
 	}
 	/**
 	* @Test для проверки 3.
@@ -48,10 +48,11 @@ public class TrackerTest {
 	*/
 	public void whenDeleteItemReturnNull() {
 		Tracker tracker = new Tracker();
-		Item item = new Item("test1","testDesc1",123L);
+		Item item = new Item("test1", "testDesc1", 123, "testComments1");
 		tracker.add(item);
 		tracker.delete(item);
-		assertThat(tracker.findById(previous.getId()),is(null));
+		int[] expected = null;
+		assertThat(tracker.findById(item.getId()), is(expected));
 	}
 	/**
 	* @Test для проверки 4.
@@ -62,13 +63,15 @@ public class TrackerTest {
 	*/
 	public void whenSearchAllItem() {
 		Tracker tracker = new Tracker();
-		tracker.add(new Item("test1","testDesc1"));
-		tracker.add(new Item("test2","testDesc2"));
-		tracker.add(new Item("test3","testDesc3"));
-		tracker.add(new Item(null));
+		Item item1 = new Item("test1", "testDesc1", 123, "testComments1");
+		tracker.add(item1);
+		Item item2 = new Item("test2", "testDesc2", 1234, "testComments2");
+		tracker.add(item2);
+		Item item3 = new Item("test3", "testDesc3", 12345, "testComments3");
+		tracker.add(item3);
 		int expected = 3;
-		Item[] findAllItem = tracker.findAll()
-		assertThat(findAllItem.length,is(expected));
+		Item[] findItem = tracker.findAll();
+		assertThat(findItem.length, is(expected));
 	}
 	/**
 	* @Test для проверки 5.
@@ -79,13 +82,17 @@ public class TrackerTest {
 	*/
 	public void whenSearchItemByName() {
 		Tracker tracker = new Tracker();
-		tracker.add(new Item("test1","testDesc1"));
-		tracker.add(new Item("test2","testDesc2"));
-		tracker.add(new Item("test3","testDesc3"));
-		tracker.add(new Item("test1","testDesc4"));
+		Item item1 = new Item("test1", "testDesc1", 123, "testComments1");
+		tracker.add(item1);
+		Item item2 = new Item("test2", "testDesc2", 1234, "testComments2");
+		tracker.add(item2);
+		Item item3 = new Item("test3", "testDesc3", 12345, "testComments3");
+		tracker.add(item3);
+		Item item4 = new Item("test1", "testDesc4", 123456, "testComments4");
+		tracker.add(item4);
 		int expected = 2;
 		Item[] findName = tracker.findByName("test1");
-		assertThat(findName.length,is(expected));
+		assertThat(findName.length, is(expected));
 	}
 	/**
 	* @Test для проверки 6.
@@ -96,10 +103,10 @@ public class TrackerTest {
 	*/
 	public void whenSearchItemById() {
 		Tracker tracker = new Tracker();
-		Item previous = new Item("test1","testDesc1",123L);
+		Item previous = new Item("test1", "testDesc1", 123, "testComments1");
 		tracker.add(previous);
-		item next = new Item("test2","testDesc2",1234L);
+		Item next = new Item("test2", "testDesc2", 1234, "testComments2");
 		next.setId(previous.getId());
-		assertThat(tracker.findById(next.getId()), is(next))
+		assertThat(tracker.findById(next.getId()), is(next));
 	}
 }
