@@ -50,9 +50,10 @@ public class TrackerTest {
 		Tracker tracker = new Tracker();
 		Item item = new Item("test1", "testDesc1", 123, "testComments1");
 		tracker.add(item);
+		Item next = new Item("test2", "testDesc2", 1234, "testComments2");
+		tracker.add(next);
 		tracker.delete(item);
-		int[] expected = null;
-		assertThat(tracker.findById(item.getId()), is(expected));
+		assertThat(tracker.findById(next.getId()).getName(), is("test2"));
 	}
 	/**
 	* @Test для проверки 4.

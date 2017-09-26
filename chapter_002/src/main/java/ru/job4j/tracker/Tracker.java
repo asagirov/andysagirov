@@ -46,9 +46,11 @@ public class Tracker {
 	* @param item - заявка.
 	*/
 	public void delete(Item item) {
-		for (Item i : this.items) {
-			if (item.getId().equals(i.getId())) {
-			i = null;
+		for (int ind = 0; ind != this.position; ind++) {
+			if (item.getId().equals(item.getId())) {
+				for (int index = ind; index < this.position; index++) {
+					items[index] = items[index++];
+				}
 			}
 		}
 	}
@@ -80,14 +82,14 @@ public class Tracker {
 	public Item[] findByName(String name) {
 		int n = 0;
 		for (Item item : items) {
-			if (item.getName().equals(name)) {
+			if (item != null && item.getName().equals(name)) {
 				n++;
 			}
 		}
 		Item[] searchName = new Item[n];
 		int indexSearch = 0;
 		for (Item item : items) {
-			if (item.getName().equals(name)) {
+			if (item != null && item.getName().equals(name)) {
 				searchName[indexSearch++] = item;
 			}
 		}
