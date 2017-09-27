@@ -53,7 +53,13 @@ public class TrackerTest {
 		Item next = new Item("test2", "testDesc2", 1234, "testComments2");
 		tracker.add(next);
 		tracker.delete(item);
-		assertThat(tracker.findById(next.getId()).getName(), is("test2"));
+		int count = 0;
+		for (Integer i : tracker.getItems()) {
+			if (i != null) {
+				count++;
+			}
+		}
+		assertThat(count, is(1));
 	}
 	/**
 	* @Test для проверки 4.

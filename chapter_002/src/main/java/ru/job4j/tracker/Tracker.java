@@ -117,4 +117,11 @@ public class Tracker {
 		String generateId() {
 			return String.valueOf(System.currentTimeMillis() + RN.nextInt());
 		}
+	/**
+	* Получаем items.
+	* @return items.
+	*/
+		public Item[] getItems() {
+		return this.items;
+	}
 }
