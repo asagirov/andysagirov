@@ -52,9 +52,9 @@ public class TrackerTest {
 		tracker.add(item);
 		Item next = new Item("test2", "testDesc2", 1234, "testComments2");
 		tracker.add(next);
-		tracker.delete(item);
+		tracker.delete(next);
 		int count = 0;
-		for (Integer i : tracker.getItems()) {
+		for (Item i : tracker.getItems()) {
 			if (i != null) {
 				count++;
 			}

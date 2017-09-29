@@ -46,11 +46,9 @@ public class Tracker {
 	* @param item - заявка.
 	*/
 	public void delete(Item item) {
-		for (int ind = 0; ind != this.position; ind++) {
+		for (int index = 0; index != this.position; index++) {
 			if (item.getId().equals(item.getId())) {
-				for (int index = ind; index < this.position; index++) {
-					items[index] = items[index++];
-				}
+				items[index] = null;
 			}
 		}
 	}
